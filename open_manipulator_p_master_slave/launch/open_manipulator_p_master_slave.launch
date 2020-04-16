@@ -1,0 +1,20 @@
+<launch>
+  <arg name="usb_port"     default="/dev/ttyUSB1"/>
+  <arg name="baud_rate"    default="1000000"/>
+  <arg name="service_call_period"    default="0.010"/>
+  <arg name="joint1_id"    default="21"/>
+  <arg name="joint2_id"    default="22"/>
+  <arg name="joint3_id"    default="23"/>
+  <arg name="joint4_id"    default="24"/>
+  <arg name="gripper_id"   default="25"/>
+
+  <node name="open_manipulator_p_master_slave" pkg="open_manipulator_p_master_slave" type="open_manipulator_p_master_slave"
+    args="$(arg usb_port) $(arg baud_rate)" output="screen">
+    <param name="service_call_period"       value="$(arg service_call_period)"/>
+    <param name="joint1_id"                 value="$(arg joint1_id)"/>
+    <param name="joint2_id"                 value="$(arg joint2_id)"/>
+    <param name="joint3_id"                 value="$(arg joint3_id)"/>
+    <param name="joint4_id"                 value="$(arg joint4_id)"/>
+    <param name="gripper_id"                value="$(arg gripper_id)"/>
+  </node>
+</launch>
